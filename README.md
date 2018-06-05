@@ -19,7 +19,7 @@ Installation / Usage
 clone the repo:
 
 ```
-git clone <git-url>
+git clone git@github.com:toschoch/rpi-alpine-opencv-python3.git
 ```
 build the docker image
 ```
