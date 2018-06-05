@@ -1,0 +1,37 @@
+platform: linux/arm
+
+clone:
+  clone:
+    image: plugins/git:linux-arm
+    tags: true
+
+pipeline:
+
+  restore-cache:
+    image: shocki/drone-volume-cache
+    restore: true
+    ttl: 7
+    privileged: true
+    mount:
+      - /drone/docker
+    volumes:
+      - /tmp/cache:/cache
+
+  docker:
+    image: plugins/docker:linux-arm
+    repo: shocki/rpi-alpine-opencv-python3
+    tags: latest
+    storage_path: /drone/docker
+    auto_tag: true
+    secrets: [ docker_username, docker_password ]
+
+
+  rebuild-cache:
+    image: shocki/drone-volume-cache
+    rebuild: true
+    privileged: true
+    mount:
+      - /drone/docker
+    # Mount the cache volume, needs "Trusted"
+    volumes:
+      - /tmp/cache:/cache
