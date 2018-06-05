@@ -24,6 +24,7 @@ RUN apk add --update --no-cache \
       tiff-dev \
       # Libraries for working with WebP images (development files)
       libwebp-dev \
+      linux-headers \
 #      libavcodec-dev \
 #      libavformat-dev \
 #      libswscale-dev \
