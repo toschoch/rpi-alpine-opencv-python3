@@ -10,4 +10,3 @@ RUN apk add --update --no-cache openblas python3 libjpeg libstdc++ libwebp libpn
 COPY opencv-compile/opencv/ /usr/
 COPY opencv-compile/cv2.cpython-36m-arm-linux-gnueabihf.so* /usr/lib/python3.6/site-packages
 
-RUN python -c "import cv2; print(cv2.__version__)"
